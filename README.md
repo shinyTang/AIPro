@@ -1,3 +1,2 @@
-# AIPro
-OpenAICode
-这是用来放置OpenAI的一些sample code。
+Codon is a high-performance Python compiler that compiles Python code to native machine code without any runtime overhead. Typical speedups over Python are on the order of 100x or more, on a single thread. Codon supports native multithreading which can lead to speedups many times higher still.
+The Codon framework is fully modular and extensible, allowing for the seamless integration of new modules, compiler optimizations, domain-specific languages and so on. We actively develop Codon extensions for a number of domains such as bioinformatics and quantitative finance.

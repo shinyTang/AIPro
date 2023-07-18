@@ -53,17 +53,35 @@ user_message = "I want to write a blog post about the impact of AI on the future
 
 # Create the list of messages. role can be either "user" or "assistant" 
 messages=[
-    {"role": "system", "content": system_message},
-    {"role": "user", "name":"example_user", "content": user_message}
+    {"role": "system", "content": system_message},  
+    {"role": "user", "content": "Knock knock."},
+    {"role": "assistant", "content": "Who's there?"},
+    {"role": "user", "content": "Orange."}
+    #{"role": "user", "name":"example_user", "content": user_message}
 ]
 
-token_count = num_tokens_from_messages(messages)
-print(f"Token count: {token_count}")
+while(True):
+    user_input = input()      
+   
+    response = openai.ChatCompletion.create(
+        engine="gpt-4", # The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
+        messages = messages,
+        stop= ["no problem"]
+    )
+    print(response)
+    messages.append({"role": "assistant", "content": response['choices'][0]['message']['content']})
+    print("\n" + response['choices'][0]['message']['content'] + "\n")
 
-max_response_tokens = 500
 
-response = send_message(messages, "gpt-35-turbo", max_response_tokens)
+# token_count = num_tokens_from_messages(messages)
 
-messages.append({"role": "assistant", "content": response})
+# print(f"Token count: {token_count}")
 
-print_conversation(messages)
+# max_response_tokens = 500
+
+# response = send_message(messages, "gpt-35-turbo", max_response_tokens)
+
+# messages.append({"role": "assistant", "content": response})
+
+# print_conversation(messages)
+
