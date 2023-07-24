@@ -83,9 +83,7 @@ if __name__ == "__main__":
         #         max_token=32,
         #     )["content"]
        
-        # print(f"Searching: {query}")
-
-        
+        # print(f"Searching: {query}")        
 
 
 
